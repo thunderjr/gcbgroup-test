@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "8ebdebb6-29b6-4cb2-9a4c-0a88a435c534",
+		"name": "Teste GCB - Flávio Marques",
+		"description": "https://documenter.getpostman.com/view/8853854/Tzkzoxxg\r\n\r\nAo iniciar a API, acesse a porta 3000 para interface de usuário.\r\nAcesse as rotas /doctors para as demais funções.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Médicos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/doctors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Médico pelo Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/doctors/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctors",
+						"4"
+					]
+				},
+				"description": "Busca um Médico pelo seu Id.\r\nReturna um objeto com os dados do Médico."
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Médico por Atributo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/doctors/search?key=address.street&q=Av",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctors",
+						"search"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "address.street",
+							"description": "Atributo do médico a ser utilizado para pesquisa"
+						},
+						{
+							"key": "q",
+							"value": "Av",
+							"description": "Valor a ser pesquisado"
+						}
+					]
+				},
+				"description": "Função utilizada para busca por meio dos campos de um Médico.\r\n\r\nUso:\r\n- key: name\r\n- q:   Dráusio\r\n\r\nRetorna um array de Médicos com os resultados da consulta."
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Médico",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\": \"Dráusio\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/doctors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctors",
+						"1"
+					]
+				},
+				"description": "Atualiza o campo do Médico obtido pelo ID com os valores enviado no corpo da requisição.\r\nRetorna um array com a quantidade de colunas atualizadas."
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Médico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mateus Jesus\",\r\n    \"crm\": 1234567,\r\n    \"phone\": \"+551234567890\",\r\n    \"mobile_phone\": \"1112324000\",\r\n    \"cep\": 1001000,\r\n    \"skills\": [\r\n        {\r\n            \"name\": \"Buco maxilo\"\r\n        },\r\n        {\r\n            \"name\": \"Angiologia\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/doctors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctors"
+					]
+				},
+				"description": "Cadastra um médico, adicionando especialidades e dados de endereço.\r\nRetorna o médico criado com suas especialidades e endereço completo."
+			},
+			"response": []
+		},
+		{
+			"name": "Remover Médico",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/doctors/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctors",
+						"2"
+					]
+				},
+				"description": "Atualiza o campo deleted_at com a data e hora atuais.\r\nRetorna o total de colunas atualizadas pela consulta."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

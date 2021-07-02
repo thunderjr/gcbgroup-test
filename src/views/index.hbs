@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="/script.js"></script>
+</head>
+<body class="container m-0 p-6 text-center">
+  <header class="-space-y-1 mb-8">
+    <h2 class="text-4xl">Sistema de Gestão de Médicos</h2>
+    <h4 class="text-xl">Flávio Marques Júnior</h4>
+  </header>
+
+  <nav class="text-xl space-x-6 mb-6">
+    <a href="#">🏠 HOME</a>
+    <a href="create">🆕 CADASTRAR</a>    
+    <a href="search">🔍 PESQUISAR</a>
+  </nav>
+
+  <hr>
+
+  <div class="mx-auto px-4 mt-2">
+    <h4 class="text-3xl">Médicos Cadastrados</h4>
+    <div class="flex flex-wrap flex-row justify-center mt-4">
+      {{#each doctorsData}}
+        {{#with this}}
+          <div class="text-left flex flex-col p-6 m-2 border rounded shadow space-4">
+            <!-- fields -->
+            <div class="flex flex-row flex-1 space-x-12 mb-5">
+              <div class="flex flex-col">
+                <div>
+                  <b>Nome:</b>
+                  <div>{{name}}</div>
+                </div>
+                <div>
+                  <b>CRM:</b>
+                  <div>{{crm}}</div>
+                </div>
+                <div>
+                  <b>Telefone:</b>
+                  <div>{{phone}}</div>
+                </div>
+                <div>
+                  <b>Celular:</b>
+                  <div>{{mobile_phone}}</div>
+                </div>
+                <div>
+                  <b>Especialidades:</b>
+                  {{#each skills}}
+                    <div class="text-sm">{{name}}</div>
+                  {{/each}}
+                </div>
+              </div>
+              <div>
+                {{#with address}}
+                <div>
+                  <b>CEP:</b>
+                  <div>{{cep}}</div>
+                </div>
+                <div>
+                  <b>Endereço:</b>
+                  <div>{{street}}</div>
+                </div>
+                <div>
+                  <b>Bairro:</b>
+                  <div>{{district}}</div>
+                </div>
+                <div>
+                  <b>Cidade/Estado:</b>
+                  <div>{{city}} - {{state}}</div>
+                </div>
+                {{/with}}
+              </div>
+            </div>
+
+            <!-- buttons -->
+            <div class="flex flex-row justify-center">
+              <button class="px-4 py-2 rounded-md bg-red-500 text-white font-bold" onClick="deleteDoctor({{id}})">EXCLUIR</button>
+            </div>
+          </div>
+        {{/with}}
+      {{/each}}
+    </div>
+  </div>
+</body>
+</html>
