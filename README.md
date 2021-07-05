@@ -23,3 +23,8 @@ docker-compose up
 
 - Ao iniciar a aplicação, acesse *localhost:3000* para interface de usuário.
 - Acesse as rotas */doctors* para as demais funções.
+
+## Testes
+
+Devido a falta de familiaridade com o ambiente NestJS, acuso que os suites de testes da aplicação não estão completos.
+No momento me encontro aprimorando meus conhecimentos sobre as funcionalidades do framework + testes automatizados.

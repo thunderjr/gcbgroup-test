@@ -27,7 +27,7 @@ describe('DoctorController (e2e)', () => {
           name: 'Buco maxilo',
         },
         {
-          name: 'Angiologia',
+          name: 'NovaEspecialidadeTeste',
         },
       ],
     };
