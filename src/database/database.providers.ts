@@ -15,6 +15,7 @@ export const databaseProviders = [
         database: 'gcb-test',
       });
       sequelize.addModels([Doctor, Skill, DoctorSkill, Address]);
+      await sequelize.sync();
 
       const skills = await Skill.findAll();
 
@@ -36,8 +37,6 @@ export const databaseProviders = [
             initialSkills.map((skill) => ({ name: skill })),
           );
         });
-      } else {
-        await sequelize.sync();
       }
 
       return sequelize;
